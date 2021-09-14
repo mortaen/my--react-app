@@ -14,14 +14,24 @@ function tellMeClassName(house) {
   return houseColor
 }
 
-function Card({ characterName, house, imgUrl }) {
+function Card({
+  characterName,
+  house,
+  imgUrl,
+  ancestry,
+  dateOfBirth,
+  patronus,
+}) {
   const houseColor = tellMeClassName(house)
   return (
     <section className={`Card ${houseColor}`}>
-      <img src="" alt="portrait" />
+      <img className="Card__image" src={imgUrl} alt="portrait" />
       <div className="Card--wrapper">
         <h2 className="Card__header">{characterName}</h2>
-        <p className="Card__info">{house}</p>
+        <ul className="Card__info">
+          <li>{house}</li> <li>{ancestry}</li> <li>{dateOfBirth}</li>
+          <li>{patronus}</li>
+        </ul>
       </div>
       <button className="Card__button">more</button>
     </section>
