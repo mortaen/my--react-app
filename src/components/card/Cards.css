@@ -18,11 +18,11 @@
 }
 
 .Card__header {
-  font-size: 4rem;
+  font-size: xx-large;
 }
 
 .Card__info {
-  font-size: 2rem;
+  font-size: larger;
 }
 
 .Card__button {
@@ -30,8 +30,8 @@
   position: absolute;
   bottom: -10%;
   right: 35%;
-  padding: 1rem;
-  font-size: 2rem;
+  padding: 0.5rem;
+  font-size: larger;
   border: 5px transparent;
   border-radius: 27px;
 }
@@ -39,6 +39,7 @@
 .Card__image {
   grid-area: image;
   width: 90%;
+  border-radius: 27px;
 }
 
 .red {
