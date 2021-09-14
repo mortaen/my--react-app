@@ -2,8 +2,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100vh;
 }
 
-.card--wrapper {
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   overflow: auto;
 }

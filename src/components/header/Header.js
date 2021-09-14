@@ -1,11 +1,7 @@
-import "./Header.css";
+import "./Header.css"
 
 function Header() {
-  return (
-    <header className="Header">
-      Harry Potter
-    </header>
-  )
+  return <header className="Header">Harry Potter</header>
 }
 
-export default Header;
+export default Header
