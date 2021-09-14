@@ -1,12 +1,20 @@
 .Card {
-  display: flex;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-rows: auto;
+  grid-template-areas: "image image info info";
   position: relative;
   border: 5px transparent;
   border-radius: 27px;
-  min-height: 25vh;
   margin-bottom: 3vh;
   color: white;
+  width: 80%;
+  padding: 2rem;
+  background-color: grey;
+}
+
+.Card--wrapper {
+  grid-area: info;
 }
 
 .Card__header {
@@ -18,12 +26,19 @@
 }
 
 .Card__button {
+  grid-area: info;
   position: absolute;
-  bottom: -12px;
+  bottom: -10%;
+  right: 35%;
   padding: 1rem;
   font-size: 2rem;
   border: 5px transparent;
   border-radius: 27px;
+}
+
+.Card__image {
+  grid-area: image;
+  width: 90%;
 }
 
 .red {
