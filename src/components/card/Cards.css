@@ -1,0 +1,43 @@
+.Card {
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+  border: 5px transparent;
+  border-radius: 27px;
+  min-height: 25vh;
+  margin-bottom: 3vh;
+  color: white;
+}
+
+.Card__header {
+  font-size: 4rem;
+}
+
+.Card__info {
+  font-size: 2rem;
+}
+
+.Card__button {
+  position: absolute;
+  bottom: -12px;
+  padding: 1rem;
+  font-size: 2rem;
+  border: 5px transparent;
+  border-radius: 27px;
+}
+
+.red {
+  background-color: #7f0909;
+}
+
+.blue {
+  background-color: #000a90;
+}
+
+.yellow {
+  background-color: #eee117;
+}
+
+.green {
+  background-color: #0d6217;
+}
