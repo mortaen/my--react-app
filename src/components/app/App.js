@@ -15,9 +15,18 @@ function App() {
             house={character.house}
             ancestry={character.ancestry}
             dateOfBirth={character.dateOfBirth}
-            patronus={`Patronus: ${character.patronus}`}
+            patronus={character.patronus}
             imgUrl={character.image}
             key={character.name}
+            species={character.species}
+            yearOfBirth={character.yearOfBirth}
+            eyeColour={character.eyeColour}
+            hairColour={character.hairColour}
+            wand={`${character.wand.wood} ${character.wand.core} ${character.wand.length}`}
+            hogwartsStudent={character.hogwartsStudent}
+            hogwartsStaff={character.hogwartsStaff}
+            actor={character.actor}
+            alive={character.alive}
           />
         ))}
       </main>
