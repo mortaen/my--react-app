@@ -6,31 +6,44 @@ function Footer() {
   return (
     <footer className="Footer">
       <button
-        // className={`${
-        //   activeHouse === "Gryffindor" ? "FooterButtonActive" : ""
-        // } Footer__button red`}
-        className={activeHouse === "Gryffindor" ? "FooterButtonActive" : ""}
+        className={
+          activeHouse === "Gryffindor"
+            ? "Footer__button--active"
+            : "Footer__button red"
+        }
         onClick={() => setActiveHouse("Gryffindor")}
       >
         Gryffindor
       </button>
       <button
         // className="Footer__button yellow"
-        className={activeHouse === "Hufflepuff" ? "FooterButtonActive" : ""}
+        className={
+          activeHouse === "Hufflepuff"
+            ? "Footer__button--active"
+            : "Footer__button yellow"
+        }
         onClick={() => setActiveHouse("Hufflepuff")}
       >
         Hufflepuff
       </button>
       <button
         // className="Footer__button blue"
-        className={activeHouse === "Ravenclaw" ? "FooterButtonActive" : ""}
+        className={
+          activeHouse === "Ravenclaw"
+            ? "Footer__button--active"
+            : "Footer__button blue"
+        }
         onClick={() => setActiveHouse("Ravenclaw")}
       >
         Ravenclaw
       </button>
       <button
         // className="Footer__button green"
-        className={activeHouse === "Slytherin" ? "FooterButtonActive" : ""}
+        className={
+          activeHouse === "Slytherin"
+            ? "Footer__button--active"
+            : "Footer__button green"
+        }
         onClick={() => setActiveHouse("Slytherin")}
       >
         Slytherin
