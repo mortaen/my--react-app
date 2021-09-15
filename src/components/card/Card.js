@@ -40,6 +40,10 @@ function Card({
   const [emoji3, setEmoji3] = useState("")
   const [emoji4, setEmoji4] = useState("")
 
+  // const handleEmojiButtonClick = (newEmoji) => {
+
+  // }
+
   return (
     <section className={`Card ${houseColor}`}>
       <img className="Card__image" src={imgUrl} alt="portrait" />
@@ -79,10 +83,10 @@ function Card({
           </button>
         </div>
         <h2 className="Card__header">
-          {emoji && <span>🤓</span>}
-          {emoji2 && <span>🥸</span>}
-          {emoji3 && <span>😇</span>}
-          {emoji4 && <span>😵‍💫</span>}
+          {emoji && "🤓"}
+          {emoji2 && "🥸"}
+          {emoji3 && "😇"}
+          {emoji4 && "😵‍💫"}
 
           {characterName}
           {characterName === "Harry Potter" ? "⚡" : ""}

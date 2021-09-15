@@ -8,19 +8,17 @@
   border-radius: 27px;
   margin-bottom: 3vh;
   color: white;
-  width: 80%;
+  width: 90%;
   padding: 2rem;
   background-color: grey;
 }
 
 .emoji-bar {
   display: flex;
-  justify-content: center;
-  font-size: x-large;
 }
 
 .emoji-button {
-  font-size: larger;
+  font-size: xx-large;
   border: 5px transparent;
   border-radius: 27px;
   background: transparent;
@@ -32,6 +30,7 @@
 
 .Card__header {
   font-size: xx-large;
+  margin-top: 0;
 }
 
 .Card__info {
