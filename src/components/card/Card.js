@@ -35,12 +35,55 @@ function Card({
   const houseColor = tellMeClassName(house)
 
   const [showDetails, setShowDetails] = useState(false)
+  const [emoji, setEmoji] = useState("")
+  const [emoji2, setEmoji2] = useState("")
+  const [emoji3, setEmoji3] = useState("")
+  const [emoji4, setEmoji4] = useState("")
 
   return (
     <section className={`Card ${houseColor}`}>
       <img className="Card__image" src={imgUrl} alt="portrait" />
       <div className="Card--wrapper">
+        <div className="emoji-bar">
+          <button
+            className="emoji-button"
+            onClick={() => {
+              setEmoji(!emoji)
+            }}
+          >
+            🤓
+          </button>
+          <button
+            className="emoji-button"
+            onClick={() => {
+              setEmoji2(!emoji2)
+            }}
+          >
+            🥸
+          </button>
+          <button
+            className="emoji-button"
+            onClick={() => {
+              setEmoji3(!emoji3)
+            }}
+          >
+            😇
+          </button>
+          <button
+            className="emoji-button"
+            onClick={() => {
+              setEmoji4(!emoji4)
+            }}
+          >
+            😵‍💫
+          </button>
+        </div>
         <h2 className="Card__header">
+          {emoji && <span>🤓</span>}
+          {emoji2 && <span>🥸</span>}
+          {emoji3 && <span>😇</span>}
+          {emoji4 && <span>😵‍💫</span>}
+
           {characterName}
           {characterName === "Harry Potter" ? "⚡" : ""}
           {characterName === "Hermione Granger" && "📚"}
@@ -49,6 +92,16 @@ function Card({
           <li>{house}</li> <li>{ancestry}</li> <li>{dateOfBirth}</li>
           <li>{`Patronus: ${patronus}`}</li>
         </ul>
+        {showDetails && (
+          <ul className="Card__info">
+            <li>{species}</li> <li>{yearOfBirth}</li> <li>{`wand: ${wand}`}</li>
+            <li>Eye colour: {eyeColour}</li>
+            <li>{`Hair colour: ${hairColour}`}</li> <li>{`actor: ${actor}`}</li>
+            <li>{`alive: ${alive}`}</li>
+            <li>{`Student: ${hogwartsStudent}`}</li>
+            <li>{`Staff: ${hogwartsStaff}`}</li>
+          </ul>
+        )}
       </div>
       <button
         className="Card__button"
@@ -58,16 +111,6 @@ function Card({
       >
         more
       </button>
-      {showDetails && (
-        <ul className="Card__info">
-          <li>{species}</li> <li>{yearOfBirth}</li> <li>{`wand: ${wand}`}</li>
-          <li>Eye colour: {eyeColour}</li>
-          <li>{`Hair colour: ${hairColour}`}</li> <li>{`actor: ${actor}`}</li>
-          <li>{`alive: ${alive}`}</li>
-          <li>{`Student: ${hogwartsStudent}`}</li>
-          <li>{`Staff: ${hogwartsStaff}`}</li>
-        </ul>
-      )}
     </section>
   )
 }
