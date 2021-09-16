@@ -1,12 +1,56 @@
 import "./Footer.css"
 
-function Footer() {
+function Footer({ activeHouse, onHouseButtonClick }) {
   return (
     <footer className="Footer">
-      <button className="Footer__button red">Gryffindor</button>
-      <button className="Footer__button yellow">Hufflepuff</button>
-      <button className="Footer__button blue">Ravenclaw</button>
-      <button className="Footer__button green">Slytherin</button>
+      <button
+        className={
+          activeHouse === "Gryffindor"
+            ? "Footer__button--active"
+            : "Footer__button red"
+        }
+        onClick={() => onHouseButtonClick("Gryffindor")}
+      >
+        Gryffindor
+      </button>
+      <button
+        className={
+          activeHouse === "Hufflepuff"
+            ? "Footer__button--active"
+            : "Footer__button yellow"
+        }
+        onClick={() => onHouseButtonClick("Hufflepuff")}
+      >
+        Hufflepuff
+      </button>
+      <button
+        className={
+          activeHouse === "Ravenclaw"
+            ? "Footer__button--active"
+            : "Footer__button blue"
+        }
+        onClick={() => onHouseButtonClick("Ravenclaw")}
+      >
+        Ravenclaw
+      </button>
+      <button
+        className={
+          activeHouse === "Slytherin"
+            ? "Footer__button--active"
+            : "Footer__button green"
+        }
+        onClick={() => onHouseButtonClick("Slytherin")}
+      >
+        Slytherin
+      </button>
+      <button
+        className={
+          activeHouse === "" ? "Footer__button--active" : "Footer__button"
+        }
+        onClick={() => onHouseButtonClick("")}
+      >
+        no house
+      </button>
     </footer>
   )
 }

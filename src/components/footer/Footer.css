@@ -5,7 +5,15 @@
 }
 
 .Footer__button {
-  font-size: large;
+  font-size: xx-large;
+  border: 5px transparent;
+  border-radius: 27px;
+}
+
+.Footer__button--active {
+  background-color: white;
+  color: orange;
+  font-size: xx-large;
   border: 5px transparent;
   border-radius: 27px;
 }
@@ -15,11 +23,11 @@
 }
 
 .blue {
-  background-color: #000a90;
+  background-color: #222f5b;
 }
 
 .yellow {
-  background-color: #eee117;
+  background-color: #ffdb00;
 }
 
 .green {
