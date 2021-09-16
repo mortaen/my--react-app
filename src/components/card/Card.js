@@ -1,4 +1,5 @@
 import { useState } from "react"
+import EmojiBar from "../EmojiBar/EmojiBar"
 import "./Cards.css"
 
 function tellMeClassName(house) {
@@ -36,57 +37,25 @@ function Card({
 
   const [showDetails, setShowDetails] = useState(false)
   const [emoji, setEmoji] = useState("")
-  const [emoji2, setEmoji2] = useState("")
-  const [emoji3, setEmoji3] = useState("")
-  const [emoji4, setEmoji4] = useState("")
 
-  // const handleEmojiButtonClick = (newEmoji) => {
-
-  // }
+  function handleEmojiButtonClick(newEmoji) {
+    if (emoji === newEmoji) {
+      setEmoji("")
+    } else {
+      setEmoji(newEmoji)
+    }
+  }
 
   return (
     <section className={`Card ${houseColor}`}>
       <img className="Card__image" src={imgUrl} alt="portrait" />
       <div className="Card--wrapper">
-        <div className="emoji-bar">
-          <button
-            className="emoji-button"
-            onClick={() => {
-              setEmoji(!emoji)
-            }}
-          >
-            🤓
-          </button>
-          <button
-            className="emoji-button"
-            onClick={() => {
-              setEmoji2(!emoji2)
-            }}
-          >
-            🥸
-          </button>
-          <button
-            className="emoji-button"
-            onClick={() => {
-              setEmoji3(!emoji3)
-            }}
-          >
-            😇
-          </button>
-          <button
-            className="emoji-button"
-            onClick={() => {
-              setEmoji4(!emoji4)
-            }}
-          >
-            😵‍💫
-          </button>
-        </div>
+        <EmojiBar
+          onEmojiButtonClick={(newEmoji) => handleEmojiButtonClick(newEmoji)}
+        />
+
         <h2 className="Card__header">
-          {emoji && "🤓"}
-          {emoji2 && "🥸"}
-          {emoji3 && "😇"}
-          {emoji4 && "😵‍💫"}
+          {emoji}
 
           {characterName}
           {characterName === "Harry Potter" ? "⚡" : ""}

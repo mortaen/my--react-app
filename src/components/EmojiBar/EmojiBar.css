@@ -1,0 +1,10 @@
+.EmojiBar {
+  display: flex;
+}
+
+.EmojiBarButton {
+  font-size: xx-large;
+  border: 5px transparent;
+  border-radius: 27px;
+  background: transparent;
+}

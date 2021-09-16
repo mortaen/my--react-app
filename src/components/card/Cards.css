@@ -13,17 +13,6 @@
   background-color: grey;
 }
 
-.emoji-bar {
-  display: flex;
-}
-
-.emoji-button {
-  font-size: xx-large;
-  border: 5px transparent;
-  border-radius: 27px;
-  background: transparent;
-}
-
 .Card--wrapper {
   grid-area: info;
 }
