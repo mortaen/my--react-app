@@ -58,6 +58,7 @@ function Card({
           {emoji}
 
           {characterName}
+          {characterName === "Ron Weasley" ? " aka Ronaldo Weaslinho" : ""}
           {characterName === "Harry Potter" ? "⚡" : ""}
           {characterName === "Hermione Granger" && "📚"}
         </h2>
