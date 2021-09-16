@@ -3,6 +3,8 @@
   flex-direction: column;
   align-items: center;
   height: 100vh;
+  background-image: url(../../img/harry_potter.jpg);
+  background-size: cover;
 }
 
 .main {
