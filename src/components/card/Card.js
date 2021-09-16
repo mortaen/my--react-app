@@ -82,7 +82,7 @@ function Card({
           setShowDetails(!showDetails)
         }}
       >
-        more
+        {showDetails ? "less" : "more"}
       </button>
     </section>
   )
