@@ -1,4 +1,3 @@
-import { useState } from "react"
 import "./Footer.css"
 
 function Footer({ activeHouse, onHouseButtonClick }) {
@@ -43,6 +42,14 @@ function Footer({ activeHouse, onHouseButtonClick }) {
         onClick={() => onHouseButtonClick("Slytherin")}
       >
         Slytherin
+      </button>
+      <button
+        className={
+          activeHouse === "" ? "Footer__button--active" : "Footer__button"
+        }
+        onClick={() => onHouseButtonClick("")}
+      >
+        no house
       </button>
     </footer>
   )
