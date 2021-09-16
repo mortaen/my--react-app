@@ -16,7 +16,6 @@ function Footer() {
         Gryffindor
       </button>
       <button
-        // className="Footer__button yellow"
         className={
           activeHouse === "Hufflepuff"
             ? "Footer__button--active"
@@ -27,7 +26,6 @@ function Footer() {
         Hufflepuff
       </button>
       <button
-        // className="Footer__button blue"
         className={
           activeHouse === "Ravenclaw"
             ? "Footer__button--active"
@@ -38,7 +36,6 @@ function Footer() {
         Ravenclaw
       </button>
       <button
-        // className="Footer__button green"
         className={
           activeHouse === "Slytherin"
             ? "Footer__button--active"
