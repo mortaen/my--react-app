@@ -1,8 +1,7 @@
 import { useState } from "react"
 import "./Footer.css"
 
-function Footer() {
-  const [activeHouse, setActiveHouse] = useState("")
+function Footer({ activeHouse, onHouseButtonClick }) {
   return (
     <footer className="Footer">
       <button
@@ -11,7 +10,7 @@ function Footer() {
             ? "Footer__button--active"
             : "Footer__button red"
         }
-        onClick={() => setActiveHouse("Gryffindor")}
+        onClick={() => onHouseButtonClick("Gryffindor")}
       >
         Gryffindor
       </button>
@@ -21,7 +20,7 @@ function Footer() {
             ? "Footer__button--active"
             : "Footer__button yellow"
         }
-        onClick={() => setActiveHouse("Hufflepuff")}
+        onClick={() => onHouseButtonClick("Hufflepuff")}
       >
         Hufflepuff
       </button>
@@ -31,7 +30,7 @@ function Footer() {
             ? "Footer__button--active"
             : "Footer__button blue"
         }
-        onClick={() => setActiveHouse("Ravenclaw")}
+        onClick={() => onHouseButtonClick("Ravenclaw")}
       >
         Ravenclaw
       </button>
@@ -41,7 +40,7 @@ function Footer() {
             ? "Footer__button--active"
             : "Footer__button green"
         }
-        onClick={() => setActiveHouse("Slytherin")}
+        onClick={() => onHouseButtonClick("Slytherin")}
       >
         Slytherin
       </button>
