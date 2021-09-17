@@ -32,6 +32,8 @@ function Card({
   actor,
   alive,
   wand,
+  isFavorite,
+  onFavoriteButtonClick,
 }) {
   const houseColor = tellMeClassName(house)
 
@@ -50,6 +52,14 @@ function Card({
     <section className={`Card ${houseColor}`}>
       <img className="Card__image" src={imgUrl} alt="portrait" />
       <div className="Card--wrapper">
+        <button
+          onClick={() => {
+            onFavoriteButtonClick(characterName)
+          }}
+        >
+          add to favorites
+        </button>
+
         <EmojiBar
           onEmojiButtonClick={(newEmoji) => handleEmojiButtonClick(newEmoji)}
         />
@@ -61,6 +71,8 @@ function Card({
           {characterName === "Ron Weasley" ? " aka Ronaldo Weaslinho" : ""}
           {characterName === "Harry Potter" ? "⚡" : ""}
           {characterName === "Hermione Granger" && "📚"}
+
+          {isFavorite ? "⭐️" : ""}
         </h2>
         <ul className="Card__info">
           <li>{house}</li> <li>{ancestry}</li> <li>{dateOfBirth}</li>
