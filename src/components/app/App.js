@@ -5,6 +5,7 @@ import Card from "../card/Card"
 import { useState } from "react"
 
 function App({ data }) {
+  // House Buttons
   const [activeHouse, setActiveHouse] = useState(() => {
     if (localStorage.getItem("activeHouseLocalStorage")) {
       return JSON.parse(localStorage.getItem("activeHouseLocalStorage"))
@@ -25,12 +26,46 @@ function App({ data }) {
 
   const shownData = activeHouse === "All" ? data : filteredData
 
+  // Favorites
+
+  const [favorites, setFavorites] = useState(() => {
+    if (localStorage.getItem("favoritesLocalStorage")) {
+      return JSON.parse(localStorage.getItem("favoritesLocalStorage"))
+    } else {
+      return []
+    }
+  })
+
+  function handleFavoriteButtonClick(characterName) {
+    const isFavorite = favorites.includes(characterName)
+
+    let newFavorites
+    if (isFavorite) {
+      // Remove from favorites
+      newFavorites = favorites.filter((item) => {
+        if (item === characterName) {
+          return false
+        } else {
+          return true
+        }
+      })
+    } else {
+      // Add to favorites
+      newFavorites = favorites.concat(characterName)
+    }
+
+    setFavorites(newFavorites)
+    localStorage.setItem("favoritesLocalStorage", JSON.stringify(newFavorites))
+  }
+
   return (
     <div className="App">
       <Header />
       <main className="main">
         {shownData.map((character) => (
           <Card
+            onFavoriteButtonClick={handleFavoriteButtonClick}
+            isFavorite={favorites.includes(character.name)}
             characterName={character.name}
             house={character.house}
             ancestry={character.ancestry}
