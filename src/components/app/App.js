@@ -3,6 +3,7 @@ import Header from "../header/Header"
 import Footer from "../footer/Footer"
 import Card from "../card/Card"
 import { useState } from "react"
+import Form from "../form/Form"
 
 function App({ data }) {
   // House Buttons
@@ -62,6 +63,7 @@ function App({ data }) {
     <div className="App">
       <Header />
       <main className="main">
+        <Form />
         {shownData.map((character) => (
           <Card
             onFavoriteButtonClick={handleFavoriteButtonClick}
