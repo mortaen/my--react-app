@@ -1,58 +1,67 @@
-import "./Footer.css"
+import styled from "styled-components"
 
 function Footer({ activeHouse, onHouseButtonClick }) {
   return (
-    <footer className="Footer">
-      <button
-        className={
-          activeHouse === "Gryffindor"
-            ? "Footer__button--active"
-            : "Footer__button red"
-        }
+    <StyledFooter>
+      <FooterButton
+        house="Gryffindor"
+        active={activeHouse === "Gryffindor"}
         onClick={() => onHouseButtonClick("Gryffindor")}
       >
         Gryffindor
-      </button>
-      <button
-        className={
-          activeHouse === "Hufflepuff"
-            ? "Footer__button--active"
-            : "Footer__button yellow"
-        }
+      </FooterButton>
+      <FooterButton
+        house="Hufflepuff"
+        active={activeHouse === "Hufflepuff"}
         onClick={() => onHouseButtonClick("Hufflepuff")}
       >
         Hufflepuff
-      </button>
-      <button
-        className={
-          activeHouse === "Ravenclaw"
-            ? "Footer__button--active"
-            : "Footer__button blue"
-        }
+      </FooterButton>
+      <FooterButton
+        house="Ravenclaw"
+        active={activeHouse === "Ravenclaw"}
         onClick={() => onHouseButtonClick("Ravenclaw")}
       >
         Ravenclaw
-      </button>
-      <button
-        className={
-          activeHouse === "Slytherin"
-            ? "Footer__button--active"
-            : "Footer__button green"
-        }
+      </FooterButton>
+      <FooterButton
+        house="Slytherin"
+        active={activeHouse === "Slytherin"}
         onClick={() => onHouseButtonClick("Slytherin")}
       >
         Slytherin
-      </button>
-      <button
-        className={
-          activeHouse === "" ? "Footer__button--active" : "Footer__button"
-        }
+      </FooterButton>
+      <FooterButton
+        active={activeHouse === ""}
         onClick={() => onHouseButtonClick("")}
       >
         no house
-      </button>
-    </footer>
+      </FooterButton>
+    </StyledFooter>
   )
 }
+
+const StyledFooter = styled.footer`
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+`
+
+const FooterButton = styled.button`
+  color: ${({ active }) => active && "orange"};
+  background-color: ${({ house }) =>
+    house === "Gryffindor"
+      ? "#7f0909"
+      : house === "Hufflepuff"
+      ? "#ffdb00"
+      : house === "Ravenclaw"
+      ? "#222f5b"
+      : house === "Slytherin"
+      ? "#0d6217"
+      : "grey"};
+  font-size: xx-large;
+  border: 5px transparent;
+  border-radius: 27px;
+`
 
 export default Footer
