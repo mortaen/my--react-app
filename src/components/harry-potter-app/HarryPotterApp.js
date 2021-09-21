@@ -1,10 +1,11 @@
-import "./App.css"
 import Header from "../header/Header"
 import Footer from "../footer/Footer"
 import Card from "../card/Card"
 import { useState } from "react"
+import styled from "styled-components"
+import appBackgroundImg from "../../img/harry_potter.jpg"
 
-function App({ data }) {
+function HarryPotterApp({ data }) {
   // House Buttons
   const [activeHouse, setActiveHouse] = useState(() => {
     if (localStorage.getItem("activeHouseLocalStorage")) {
@@ -59,9 +60,9 @@ function App({ data }) {
   }
 
   return (
-    <div className="App">
+    <AppDiv>
       <Header />
-      <main className="main">
+      <Main>
         {shownData.map((character) => (
           <Card
             onFavoriteButtonClick={handleFavoriteButtonClick}
@@ -84,13 +85,29 @@ function App({ data }) {
             alive={character.alive}
           />
         ))}
-      </main>
+      </Main>
       <Footer
         activeHouse={activeHouse}
         onHouseButtonClick={handleHouseButtonClick}
       />
-    </div>
+    </AppDiv>
   )
 }
 
-export default App
+const Main = styled.main`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: auto;
+`
+
+const AppDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  background-image: url(${appBackgroundImg});
+  background-size: cover;
+`
+
+export default HarryPotterApp

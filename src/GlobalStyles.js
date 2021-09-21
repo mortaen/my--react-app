@@ -1,3 +1,7 @@
+import { createGlobalStyle } from "styled-components"
+
+const GlobalStyles = createGlobalStyle`
+
 html {
   box-sizing: border-box;
 }
@@ -18,3 +22,6 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+`
+
+export default GlobalStyles

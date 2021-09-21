@@ -1,13 +1,14 @@
 import React from "react"
 import ReactDOM from "react-dom"
-import "./index.css"
-import App from "./components/app/App"
+import App from "./App"
 import reportWebVitals from "./reportWebVitals"
-import data from "./data.json"
+import harryPotterData from "./data.json"
+import GlobalStyles from "./GlobalStyles"
 
 ReactDOM.render(
   <React.StrictMode>
-    <App data={data} />
+    <GlobalStyles />
+    <App harryPotterData={harryPotterData} />
   </React.StrictMode>,
   document.getElementById("root")
 )
