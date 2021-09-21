@@ -1,17 +1,19 @@
 import { useState } from "react"
 import EmojiBar from "../EmojiBar/EmojiBar"
-import "./Cards.css"
+import styled from "styled-components"
 
-function tellMeClassName(house) {
+function getHouseColor(house) {
   let houseColor
   if (house === "Gryffindor") {
-    houseColor = "red"
+    houseColor = "#7f0909"
   } else if (house === "Hufflepuff") {
-    houseColor = "yellow"
+    houseColor = "#eee117"
   } else if (house === "Ravenclaw") {
-    houseColor = "blue"
+    houseColor = "#000a90"
   } else if (house === "Slytherin") {
-    houseColor = "green"
+    houseColor = "#0d6217"
+  } else if (house === "") {
+    houseColor = "grey"
   }
   return houseColor
 }
@@ -35,7 +37,7 @@ function Card({
   isFavorite,
   onFavoriteButtonClick,
 }) {
-  const houseColor = tellMeClassName(house)
+  const houseColor = getHouseColor(house)
 
   const [showDetails, setShowDetails] = useState(false)
   const [emoji, setEmoji] = useState("")
@@ -49,9 +51,9 @@ function Card({
   }
 
   return (
-    <section className={`Card ${houseColor}`}>
-      <img className="Card__image" src={imgUrl} alt="portrait" />
-      <div className="Card--wrapper">
+    <StyledCardSection color={getHouseColor(house)}>
+      <CardImg src={imgUrl} alt="portrait" />
+      <CardWrapperDiv>
         <button
           onClick={() => {
             onFavoriteButtonClick(characterName)
@@ -64,7 +66,7 @@ function Card({
           onEmojiButtonClick={(newEmoji) => handleEmojiButtonClick(newEmoji)}
         />
 
-        <h2 className="Card__header">
+        <CardHeader>
           {emoji}
 
           {characterName}
@@ -73,32 +75,75 @@ function Card({
           {characterName === "Hermione Granger" && "📚"}
 
           {isFavorite ? "⭐️" : ""}
-        </h2>
-        <ul className="Card__info">
+        </CardHeader>
+        <CardInfoList>
           <li>{house}</li> <li>{ancestry}</li> <li>{dateOfBirth}</li>
           <li>{`Patronus: ${patronus}`}</li>
-        </ul>
+        </CardInfoList>
         {showDetails && (
-          <ul className="Card__info">
+          <CardInfoList>
             <li>{species}</li> <li>{yearOfBirth}</li> <li>{`wand: ${wand}`}</li>
             <li>Eye colour: {eyeColour}</li>
             <li>{`Hair colour: ${hairColour}`}</li> <li>{`actor: ${actor}`}</li>
             <li>{`alive: ${alive}`}</li>
             <li>{`Student: ${hogwartsStudent}`}</li>
             <li>{`Staff: ${hogwartsStaff}`}</li>
-          </ul>
+          </CardInfoList>
         )}
-      </div>
-      <button
-        className="Card__button"
+      </CardWrapperDiv>
+      <CardButton
         onClick={() => {
           setShowDetails(!showDetails)
         }}
       >
         {showDetails ? "less" : "more"}
-      </button>
-    </section>
+      </CardButton>
+    </StyledCardSection>
   )
 }
 
+const StyledCardSection = styled.div`
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-rows: auto;
+  grid-template-areas: "image image info info";
+  position: relative;
+  border: 5px transparent;
+  border-radius: 27px;
+  margin-bottom: 3vh;
+  color: white;
+  width: 70%;
+  padding: 2rem;
+  background-color: ${({ color }) => color};
+`
+
+const CardWrapperDiv = styled.div`
+  grid-area: info;
+`
+
+const CardHeader = styled.h2`
+  font-size: xx-large;
+  margin-top: 0;
+`
+
+const CardInfoList = styled.ul`
+  font-size: 2rem;
+`
+
+const CardButton = styled.button`
+  grid-area: info;
+  position: absolute;
+  bottom: -10%;
+  right: 35%;
+  padding: 0.5rem;
+  font-size: larger;
+  border: 5px transparent;
+  border-radius: 27px;
+`
+
+const CardImg = styled.img`
+  grid-area: image;
+  width: 90%;
+  border-radius: 27px;
+`
 export default Card

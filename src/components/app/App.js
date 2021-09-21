@@ -4,6 +4,8 @@ import Footer from "../footer/Footer"
 import Card from "../card/Card"
 import { useState } from "react"
 import Form from "../form/Form"
+import styled from "styled-components"
+import appBackgroundImg from "../../img/harry_potter.jpg"
 
 function App({ data }) {
   // House Buttons
@@ -59,11 +61,27 @@ function App({ data }) {
     localStorage.setItem("favoritesLocalStorage", JSON.stringify(newFavorites))
   }
 
+  // Form data
+
+  const [additionalData, setAdditionalData] = useState([])
+
+  function handleCreateCharacter({ name, house, ancestry, dateOfBirth }) {
+    const newData = [
+      ...shownData,
+      {
+        name: name,
+        house: house,
+        ancestry: ancestry,
+        dateOfBirth: dateOfBirth,
+      },
+    ]
+    setAdditionalData(newData)
+  }
+
   return (
-    <div className="App">
+    <AppDiv>
       <Header />
-      <main className="main">
-        <Form />
+      <Main>
         {shownData.map((character) => (
           <Card
             onFavoriteButtonClick={handleFavoriteButtonClick}
@@ -86,13 +104,29 @@ function App({ data }) {
             alive={character.alive}
           />
         ))}
-      </main>
+      </Main>
       <Footer
         activeHouse={activeHouse}
         onHouseButtonClick={handleHouseButtonClick}
       />
-    </div>
+    </AppDiv>
   )
 }
+
+const Main = styled.main`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: auto;
+`
+
+const AppDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  background-image: url(${appBackgroundImg});
+  background-size: cover;
+`
 
 export default App
