@@ -1,11 +1,9 @@
-import "./Form.css"
-
-function Form() {
+function Form({ onCreateCharacter }) {
   return (
-    <form className="form" onSubmit={(event) => handleSubmit(event)}>
+    <form onSubmit={(event) => handleSubmit(event)}>
       <label>
         Character Name:
-        <input type="text" name="characterName"></input>
+        <input type="text" name="characterName" required></input>
       </label>
       <label>
         House:
@@ -27,10 +25,14 @@ function Form() {
     event.preventDefault()
     const form = event.target
     const { characterName, house, ancestry, dateOfBirth } = form.elements
-    console.log("name of character: " + characterName.value)
-    console.log("house: " + house.value)
-    console.log("ancestry: " + ancestry.value)
-    console.log("date of birth: " + dateOfBirth.value)
+
+    onCreateCharacter({
+      name: characterName.value,
+      house: house.value,
+      ancestry: ancestry.value,
+      dateOfBirth: dateOfBirth.value,
+    })
+
     form.reset()
     characterName.focus()
   }
