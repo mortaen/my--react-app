@@ -1,7 +1,15 @@
-import "./Header.css"
+import styled from "styled-components"
 
 function Header() {
-  return <header className="Header">Harry Potter</header>
+  return <StyledHeader>Harry Potter</StyledHeader>
 }
 
 export default Header
+
+const StyledHeader = styled.header`
+  text-align: center;
+  font-size: 4rem;
+  margin-bottom: 3vh;
+  width: 100%;
+  color: white;
+`
