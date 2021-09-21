@@ -1,40 +1,34 @@
-import "./EmojiBar.css"
+import styled from "styled-components"
 
 function EmojiBar({ onEmojiButtonClick }) {
   return (
-    <div className="EmojiBar">
-      <button
-        className="EmojiBarButton"
-        onClick={() => onEmojiButtonClick("🤓")}
-      >
+    <EmojiBarDiv>
+      <EmojiBarButton onClick={() => onEmojiButtonClick("🤓")}>
         🤓
-      </button>
-      <button
-        className="EmojiBarButton"
-        onClick={() => onEmojiButtonClick("🥸")}
-      >
-        🥸
-      </button>
-      <button
-        className="EmojiBarButton"
-        onClick={() => onEmojiButtonClick("😇")}
-      >
+      </EmojiBarButton>
+      <EmojiBarButton onClick={() => onEmojiButtonClick("🥸")}>🥸</EmojiBarButton>
+      <EmojiBarButton onClick={() => onEmojiButtonClick("😇")}>
         😇
-      </button>
-      <button
-        className="EmojiBarButton"
-        onClick={() => onEmojiButtonClick("😵‍💫")}
-      >
+      </EmojiBarButton>
+      <EmojiBarButton onClick={() => onEmojiButtonClick("😵‍💫")}>
         😵‍💫
-      </button>
-      <button
-        className="EmojiBarButton"
-        onClick={() => onEmojiButtonClick("🦩")}
-      >
+      </EmojiBarButton>
+      <EmojiBarButton onClick={() => onEmojiButtonClick("🦩")}>
         🦩
-      </button>
-    </div>
+      </EmojiBarButton>
+    </EmojiBarDiv>
   )
 }
+
+const EmojiBarDiv = styled.div`
+  display: flex;
+`
+
+const EmojiBarButton = styled.button`
+  font-size: xx-large;
+  border: 5px transparent;
+  border-radius: 27px;
+  background: transparent;
+`
 
 export default EmojiBar
