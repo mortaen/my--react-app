@@ -37,8 +37,6 @@ function Card({
   isFavorite,
   onFavoriteButtonClick,
 }) {
-  const houseColor = getHouseColor(house)
-
   const [showDetails, setShowDetails] = useState(false)
   const [emoji, setEmoji] = useState("")
 
