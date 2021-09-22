@@ -1,11 +1,21 @@
-import Header from "../header/Header"
-import Footer from "../footer/Footer"
-import Card from "../card/Card"
-import { useState } from "react"
+import Header from "./components/header/Header"
+import Footer from "./components/footer/Footer"
+import Card from "./components/card/Card"
+import { useEffect, useState } from "react"
 import styled from "styled-components"
-import appBackgroundImg from "../../img/harry_potter.jpg"
+import appBackgroundImg from "../img/harry_potter.jpg"
 
-function HarryPotterApp({ data }) {
+function HarryPotterApp() {
+  const [data, setData] = useState([])
+
+  useEffect(() => {
+    fetch("http://hp-api.herokuapp.com/api/characters")
+      .then((response) => response.json())
+      .then((dataFromServer) => {
+        setData(dataFromServer)
+      })
+  }, [])
+
   // House Buttons
   const [activeHouse, setActiveHouse] = useState(() => {
     if (localStorage.getItem("activeHouseLocalStorage")) {
