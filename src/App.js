@@ -1,10 +1,11 @@
 import { Link, Route, Switch } from "react-router-dom"
 import { BrowserRouter as Router } from "react-router-dom"
 import styled from "styled-components/macro"
-import FormApp from "./components/FormApp/FormApp"
-import HarryPotterApp from "./components/harry-potter-app/HarryPotterApp"
+import FormApp from "./FormApp/FormApp"
 
-function App({ harryPotterData }) {
+import HarryPotterApp from "./harry-potter-app/HarryPotterApp"
+
+function App() {
   return (
     <>
       <Router>
@@ -18,7 +19,7 @@ function App({ harryPotterData }) {
             <FormApp />
           </Route>
           <Route exact path="/harrypotter">
-            <HarryPotterApp data={harryPotterData} />
+            <HarryPotterApp />
           </Route>
           <Route>404 NOT FOUND</Route>
         </Switch>
