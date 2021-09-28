@@ -49,7 +49,7 @@ function Card({
   }
 
   return (
-    <StyledCardSection color={getHouseColor(house)}>
+    <StyledCardSection role="article" color={getHouseColor(house)}>
       <CardImg src={imgUrl} alt="portrait" />
       <CardWrapperDiv>
         <button
@@ -90,6 +90,7 @@ function Card({
         )}
       </CardWrapperDiv>
       <CardButton
+        role="switch"
         onClick={() => {
           setShowDetails(!showDetails)
         }}
