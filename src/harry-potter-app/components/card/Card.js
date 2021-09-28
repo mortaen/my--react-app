@@ -64,7 +64,7 @@ function Card({
           onEmojiButtonClick={(newEmoji) => handleEmojiButtonClick(newEmoji)}
         />
 
-        <CardHeader role="heading">
+        <CardHeader>
           {emoji}
 
           {characterName}
